@@ -1,30 +1,23 @@
-
-
-
-
-
-local hom = "cool"
-
-local dun = _G.shit.moarshit.CustomDungeon
-local diff = _G.shit.Difficulty
-local hard = _G.shit.Hardcore
+local dun = _G.sus.stuff.CustomDungeon
+local diff = _G.sus.Difficulty
+local hard = _G.sus.Hardcore
 local remotes = game:service('ReplicatedStorage'):WaitForChild("remotes")
 local startergui = game:GetService("StarterGui")
 startergui:SetCoreGuiEnabled(Enum.CoreGuiType.All, false)
 startergui:SetCore("TopbarEnabled", false) 
 local nosee = coroutine.wrap(function()
     while wait() do
-        if game.Players.LocalPlayer.PlayerGui:FindFirstChild("playerStatus") and game.workspace:FindFirstChild(game.Players.LocalPlayer.Name) and _G.shit.Name_Protect then
+        if game.Players.LocalPlayer.PlayerGui:FindFirstChild("playerStatus") and game.workspace:FindFirstChild(game.Players.LocalPlayer.Name) and _G.sus.Name_Protect then
             if game.workspace[game.Players.LocalPlayer.Name]:FindFirstChild("playerNameplate") then
                 game.workspace[game.Players.LocalPlayer.Name].playerNameplate:Destroy()
             end
             local frame = game.Players.LocalPlayer.PlayerGui.playerStatus.Frame
-            frame.playerName.Text = _G.shit.namesettings.CustomName
-            frame.levelBorder.level.Text = _G.shit.namesettings.CustomLevel
-            frame.xpFrame.xp.Text = _G.shit.namesettings.CustomExp
-            frame.healthFrame.health.Text = _G.shit.namesettings.CustomHp
-            frame.moneyMain.TextLabel.Text = _G.shit.namesettings.CustomMoney
-            frame.portraitBorder.portrait.Image = _G.shit.namesettings.CustomImage
+            frame.playerName.Text = _G.sus.namesettings.CustomName
+            frame.levelBorder.level.Text = _G.sus.namesettings.CustomLevel
+            frame.xpFrame.xp.Text = _G.sus.namesettings.CustomExp
+            frame.healthFrame.health.Text = _G.sus.namesettings.CustomHp
+            frame.moneyMain.TextLabel.Text = _G.sus.namesettings.CustomMoney
+            frame.portraitBorder.portrait.Image = _G.sus.namesettings.CustomImage
     end
 end
 end)
@@ -44,7 +37,7 @@ local skillpoints = string.match(game:GetService("Players").LocalPlayer.PlayerGu
     end
 end
 end
-if game.PlaceId == 2414851778 and _G.shit.Enabled then
+if game.PlaceId == 2414851778 and _G.sus.Enabled then
 remotes.loadPlayerCharacter:FireServer()
 repeat wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("inventory") ~= nil 
 repeat wait() until game.Players.LocalPlayer.PlayerGui.inventory.mainBackground.innerBackground.rightSideFrame.ScrollingFrame:FindFirstChild("UIGridLayout")
@@ -122,9 +115,9 @@ for i,v in pairs(game.Players.LocalPlayer.PlayerGui.inventory.mainBackground.inn
 end
 end
 game:GetService("ReplicatedStorage").remotes.sellItemEvent:FireServer({["ability"] = sell_ability, ["helmet"] = sell_helmet, ["chest"] = sell_chest, ["weapon"] = sell_wep})
-if not _G.shit.AutoDungeon and _G.shit.moarshit.Enabled then
+if not _G.sus.AutoDungeon and _G.sus.stuff.Enabled then
 remotes.createLobby:InvokeServer(dun, diff, 0, hard, true, false)
-elseif _G.shit.AutoDungeon and _G.shit.Enabled then
+elseif _G.sus.AutoDungeon and _G.sus.Enabled then
     remotes.createLobby:InvokeServer("Orbital Outpost", "Nightmare", 0, hard, true, false)
     remotes.createLobby:InvokeServer("Orbital Outpost", "Insane", 0, hard, true, false) 
     remotes.createLobby:InvokeServer("Steampunk Sewers", "Nightmare", 0, hard, true, false)  
@@ -154,7 +147,7 @@ elseif _G.shit.AutoDungeon and _G.shit.Enabled then
 end
 remotes.startDungeon:FireServer()
 end
-if game.PlaceId ~= 2414851778 and _G.shit.Enabled then
+if game.PlaceId ~= 2414851778 and _G.sus.Enabled then
 repeat wait() until game.Players.LocalPlayer.Character ~= nil
 wait(1.5)
 local attack = coroutine.wrap(function()
@@ -172,14 +165,14 @@ end)
 attack()
 repeat wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("inventory") ~= nil
 remotes.changeStartValue:FireServer()
-local fuckoff = coroutine.wrap(function()
+local perhaps = coroutine.wrap(function()
     for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do 
         if string.find(v.Name:lower(), "leg") or v.Name == "LowerTorso" then 
             v:Destroy()
         end
     end
 end)
-fuckoff()
+perhaps()
 game:GetService('RunService').Stepped:connect(function()
 game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 end)
@@ -353,16 +346,16 @@ if game.placeId == 3041739550 then
     end
 end
 if game.placeId == 2988891534 then
-local squigga = 300
+local multiple = 300
 game.workspace.ChildAdded:connect(function(attack)
-    print(attack)
+    
     if attack.Name == "gank" or attack.Name == "aoeSwipe" then
-        warn("attack by boss, dodging")
+        
         ok = 50
         wait(2)
         ok = 20
     elseif attack.Name == "spiritStrike" then
-        warn("Spirit")
+        
         ok = 100
         ok1 = math.random(10, 100)
         wait(1.2)
@@ -378,13 +371,13 @@ while wait() do
                 for i,x in pairs(z.enemyFolder:GetChildren()) do
                     if x:IsA("Model") and x:FindFirstChild("HumanoidRootPart") and x:FindFirstChild("Humanoid") then
                         if x:FindFirstChildWhichIsA("Accessory") then
-                                hum.CFrame = x.HumanoidRootPart.CFrame * CFrame.fromOrientation(squigga,0,0) + Vector3.new(ok1,ok,ok2)
+                                hum.CFrame = x.HumanoidRootPart.CFrame * CFrame.fromOrientation(multiple,0,0) + Vector3.new(ok1,ok,ok2)
                                 x.Humanoid.Health = 0
                             elseif x.Name == "Spider Queen" then
                             wait(1)
                             hum.CFrame = x.HumanoidRootPart.CFrame * CFrame.fromOrientation(300,0,0) + Vector3.new(ok1,ok,ok2)
                             elseif x.Name == "Demonic Pirate Captain" then
-                            squigga = 300
+                            multiple = 300
                             ok = 20
                         end
                     end
@@ -434,7 +427,7 @@ while wait() do
     end
 end
 end
-if _G.shit.Enabled == false and _G.Raid.Enabled then
+if _G.sus.Enabled == false and _G.Raid.Enabled then
 local what = 0
 local ok = -400
 local ok1 = 0
@@ -460,9 +453,7 @@ wait(2)
 elseif auto == false then 
 key = key
 end
-print("Enabled = " .. tostring(enab))
-print("Auto = " .. tostring(auto))
-print("key = " .. key)
+
 remotes.createBossLobby:InvokeServer(key, true, 0)
 remotes.startDungeon:FireServer()
 remotes.startBossRaid:FireServer()
@@ -505,7 +496,7 @@ end
   ok2 = -20
   ok = 0
   elseif attack.Name == "secondBossShootPlayer" and z.Name == 'Golden Golem' then
-  warn("we be getting shot at lOl (secondBossShootPlayer Goldem Golem)")
+
   _G.atc = true
   test = 300
   ok1 = -30
@@ -525,7 +516,7 @@ end
   ok2 = 0
   ok = 0
 elseif not _G.sbs and attack.Name == "firstBossShootPlayer" and z.Name == 'Earth Golem' then
-  warn("SBS in Progress lol skiDDo")
+  
   _G.atc = true
   _G.rand = true
   _G.sbs = true
@@ -540,7 +531,7 @@ elseif not _G.sbs and attack.Name == "firstBossShootPlayer" and z.Name == 'Earth
   ok2 = -20
   ok = 0
   elseif not _G.rand and attack.Name == "bossRandomStrike" and z.Name == 'Earth Golem' then
-    warn("Random strike for earth golem")
+    
     _G.atc = true
     _G.sbs = true
     _G.rand = true
@@ -556,7 +547,7 @@ elseif not _G.sbs and attack.Name == "firstBossShootPlayer" and z.Name == 'Earth
   ok = 0
   ok1 = 0
 elseif attack.Name == "secondBossShootPlayer" and z.Name == 'Ancient Stone Guardian' then
-  warn("SBS in progress lol")
+  
   _G.atc = true
   test = 300
   ok2 = 20
@@ -568,7 +559,7 @@ elseif attack.Name == "secondBossShootPlayer" and z.Name == 'Ancient Stone Guard
   ok = 0
   ok1 = 0
   elseif not _G.rando and attack.Name == "bossRandomStrike" and z.Name == 'Fusion Goliath' then
-      warn("THis shit hella annoying, RandomStrike")
+      
       _G.rando = true
       _G.Beam = true
       _G.atc = true
@@ -581,14 +572,13 @@ elseif attack.Name == "secondBossShootPlayer" and z.Name == 'Ancient Stone Guard
   elseif not _G.Beam and attack.name == "bossCannonBeam" and z.Name == 'Fusion Goliath' then
     _G.rando = true
     _G.atc = true
-	  warn("CannonBeam bruv")
         ok = math
         wait(2.3)
         _G.rando = false
         _G.atc = false
         ok = 0
   elseif not _G.orb and attack.Name == "secondBossOrbShot" and z.Name == 'Robot Gladiator' then 
-    warn("secondBossOrbShot lmao")
+    
     prenis = true
     _G.orb = true
     _G.ZigZag = true
@@ -603,7 +593,7 @@ elseif attack.Name == "secondBossShootPlayer" and z.Name == 'Ancient Stone Guard
     ok = 25
     ok1 = -15
     elseif not _G.pull and attack.Name == "pullPlayerPart" and z.Name == 'Robot Gladiator' then
-    warn("ay yo stop pulling my dick")
+    
     _G.pull = true
     _G.orb = true
     _G.atc = true
@@ -615,7 +605,7 @@ elseif attack.Name == "secondBossShootPlayer" and z.Name == 'Ancient Stone Guard
     ok = 25
     ok1 = -15
   elseif not _G.ZigZag and attack.Name == "secondBossZigZag" and z.Name == 'Robot Gladiator' then
-    warn("ZigZag bruv")
+    
     _G.orb = true
     _G.ZigZag = true
     _G.atc = true
